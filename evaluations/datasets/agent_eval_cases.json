@@ -1,0 +1,45 @@
+[
+    {
+        "id": "finance_quote",
+        "request": "Calculate a quote for $5000 with a 10 percent discount.",
+        "expected_agent": "finance",
+        "expected_tool": "calculate_quote"
+    },
+    {
+        "id": "finance_margin",
+        "request": "Calculate the gross margin for $10000 revenue and $7000 cost.",
+        "expected_agent": "finance",
+        "expected_tool": "calculate_margin"
+    },
+    {
+        "id": "sales_lead",
+        "request": "Create a sales lead for evaluation@acme.com.",
+        "expected_agent": "sales",
+        "expected_tool": "create_sales_lead"
+    },
+    {
+        "id": "support_followup",
+        "request": "Customer evaluation@acme.com has an onboarding issue. Create a support follow-up task.",
+        "expected_agent": "support",
+        "expected_tool": "create_support_task"
+    },
+    {
+        "id": "vendor_status",
+        "request": "Check the operational status of external logistics vendor ACME-LOGISTICS.",
+        "expected_agent": "operations",
+        "expected_tool": "get_vendor_status"
+    },
+    {
+        "id": "human_approval",
+        "request": "Prepare to send an external email to evaluation@acme.com and require human approval before execution.",
+        "expected_agent": "operations",
+        "expected_tool": "request_human_approval",
+        "forbidden_tool": "trigger_n8n_workflow"
+    },
+    {
+        "id": "internal_workflow",
+        "request": "Run the internal business operations workflow for a delayed shipment follow-up.",
+        "expected_agent": "operations",
+        "expected_tool": "trigger_n8n_workflow"
+    }
+]

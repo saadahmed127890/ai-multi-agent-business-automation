@@ -1,0 +1,28 @@
+# API
+fastapi
+uvicorn[standard]
+
+# Configuration and validation
+pydantic
+pydantic-settings
+
+# AI / Agents
+langchain
+langchain-core
+langchain-openai
+langchain-ollama
+langgraph
+openai
+
+# Database
+sqlalchemy
+
+# HTTP / REST APIs
+httpx
+
+# Environment support
+python-dotenv
+
+# Structured logging
+structlog
+email-validator

@@ -1,0 +1,120 @@
+[
+  {
+    "updatedAt": "2026-09-09T21:45:44.884Z",
+    "createdAt": "2026-09-09T21:25:27.521Z",
+    "id": "u4zKsxJIPw3etp6R",
+    "name": "Business Operations Webhook",
+    "description": null,
+    "active": true,
+    "isArchived": false,
+    "nodes": [
+      {
+        "parameters": {
+          "httpMethod": "POST",
+          "path": "business-operations",
+          "responseMode": "responseNode",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.webhook",
+        "typeVersion": 2.1,
+        "position": [
+          0,
+          0
+        ],
+        "id": "6cb3978a-402e-4428-b14b-05d0aa5c2dc1",
+        "name": "Webhook",
+        "webhookId": "55a35c3f-8594-4e7d-a474-ded731dacd8c"
+      },
+      {
+        "parameters": {
+          "mode": "raw",
+          "jsonOutput": "={\n  \"success\": true,\n  \"workflow\": \"business_operations\",\n  \"status\": \"processed\",\n  \"action\": \"{{ $json.body.action }}\",\n  \"request_id\": \"{{ $json.body.request_id }}\",\n  \"side_effect_performed\": false,\n  \"message\": \"Workflow request processed successfully. No external side effect was performed.\"\n}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.set",
+        "typeVersion": 3.5,
+        "position": [
+          224,
+          0
+        ],
+        "id": "8b6dcab0-61d2-46e8-8caa-711634740061",
+        "name": "Edit Fields"
+      },
+      {
+        "parameters": {
+          "options": {}
+        },
+        "type": "n8n-nodes-base.respondToWebhook",
+        "typeVersion": 1.5,
+        "position": [
+          448,
+          0
+        ],
+        "id": "8d0e825b-9e18-4ea3-84ed-445f89472122",
+        "name": "Respond to Webhook"
+      }
+    ],
+    "connections": {
+      "Webhook": {
+        "main": [
+          [
+            {
+              "node": "Edit Fields",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Edit Fields": {
+        "main": [
+          [
+            {
+              "node": "Respond to Webhook",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    },
+    "settings": {
+      "executionOrder": "v1",
+      "binaryMode": "separate"
+    },
+    "staticData": null,
+    "meta": null,
+    "nodeGroups": [],
+    "pinData": {},
+    "versionId": "8b9bb090-6b6b-4aa3-8b23-1493a2710a5b",
+    "activeVersionId": "8b9bb090-6b6b-4aa3-8b23-1493a2710a5b",
+    "versionCounter": 18,
+    "triggerCount": 1,
+    "sourceWorkflowId": null,
+    "tags": [],
+    "shared": [
+      {
+        "updatedAt": "2026-09-09T21:25:27.523Z",
+        "createdAt": "2026-09-09T21:25:27.523Z",
+        "role": "workflow:owner",
+        "workflowId": "u4zKsxJIPw3etp6R",
+        "projectId": "uNo3ehI8YbzzGsQ7",
+        "project": {
+          "updatedAt": "2026-09-09T21:23:51.443Z",
+          "createdAt": "2026-09-09T21:23:03.649Z",
+          "id": "uNo3ehI8YbzzGsQ7",
+          "name": "Saad AHMED <saadahmed127890@gmail.com>",
+          "type": "personal",
+          "icon": null,
+          "description": null,
+          "customTelemetryTags": [],
+          "creatorId": "9c021e32-3c7a-470a-bad8-f513a73d9851"
+        }
+      }
+    ],
+    "versionMetadata": {
+      "name": "Version 8b9bb090",
+      "description": ""
+    }
+  }
+]
